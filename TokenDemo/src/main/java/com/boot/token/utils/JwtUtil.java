@@ -79,8 +79,10 @@ public class JwtUtil {
     }
 
     public static void main(String[] args) throws Exception {
-        String token = "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJjYWM2ZDVhZi1mNjVlLTQ0MDAtYjcxMi0zYWEwOGIyOTIwYjQiLCJzdWIiOiJzZyIsImlzcyI6InNnIiwiaWF0IjoxNjM4MTA2NzEyLCJleHAiOjE2MzgxMTAzMTJ9.JVsSbkP94wuczb4QryQbAke3ysBDIL5ou8fWsbt_ebg";
-        Claims claims = parseJWT(token);
+//        String token = createJWT("eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIxNjlhMDYyNWJmNjg0NGVmYWYxNTRiOThjZTJhYzdjMyIsInN1YiI6IjIiLCJpc3MiOiJzZyIsImlhdCI6MTY4Mzk4NTc5OCwiZXhwIjoxNjgzOTg5Mzk4fQ.wfEcc40JRQ6e4ZlOlFiZJTJMbB782pLhV6vik3-0nRQ");
+//        System.out.println(token);
+//        String token = jwt;
+        Claims claims = parseJWT("eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJmYWQxMmYyY2NhMmM0NzM0ODliZjk3MWEzNjZhYTlhOCIsInN1YiI6IjIiLCJpc3MiOiJzZyIsImlhdCI6MTY4Mzk5MzYxMSwiZXhwIjoxNjgzOTk3MjExfQ.M2GFT_JyddeJ4rvd6fOaRC90qSnMyIuLFzG9AVSJ5HE");
         System.out.println(claims);
     }
 

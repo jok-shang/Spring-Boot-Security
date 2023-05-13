@@ -18,7 +18,7 @@ public class HelloController {
     @Resource
     private UserMapper userMapper;
 
-    @RequestMapping("/hello")
+    @GetMapping("/hello")
     public String hello(){
         return "token";
     }
