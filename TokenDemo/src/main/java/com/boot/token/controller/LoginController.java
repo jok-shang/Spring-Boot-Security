@@ -20,9 +20,17 @@ public class LoginController {
     @Resource
     private LoginService loginService;
 
+    // 登录
     @PostMapping("/user/login")
     public ResponseResult login(@RequestBody User user){
         // 登录
         return loginService.login(user);
     }
+
+    // 退出登录
+    @RequestMapping("/user/logout")
+    public ResponseResult logout(){
+        return loginService.logout();
+    }
+
 }
