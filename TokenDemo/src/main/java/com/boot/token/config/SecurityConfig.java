@@ -4,6 +4,7 @@ import com.boot.token.filter.JwtAuthenticationTokenFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -19,6 +20,7 @@ import javax.annotation.Resource;
  * @Date 2023/5/13 0:22
  */
 @Configuration
+@EnableGlobalMethodSecurity(prePostEnabled = true)// 开启注解权限的功能
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Resource

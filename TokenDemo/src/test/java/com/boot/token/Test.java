@@ -9,7 +9,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import java.util.List;
 
 /**
- * @auther 尚智江
+ * @author 尚智江
  * @Date 2023/5/12 22:55
  */
 @SpringBootTest
