@@ -1,11 +1,14 @@
 package com.boot.token;
 
+import com.boot.token.domain.Menu;
 import com.boot.token.domain.User;
+import com.boot.token.mapper.MenuMapper;
 import com.boot.token.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -18,6 +21,8 @@ public class Test {
 
     @Autowired
     private UserMapper userMapper;
+    @Resource
+    private MenuMapper menuMapper;
 
     @org.junit.jupiter.api.Test
     public void UserMapper(){
@@ -38,5 +43,10 @@ public class Test {
         System.out.println(matches);
     }
 
+    @org.junit.jupiter.api.Test
+    public void aaa(){
+        List<String> list = menuMapper.selectPermsByUserId(2L);
+        System.out.println(list);
+    }
 
 }

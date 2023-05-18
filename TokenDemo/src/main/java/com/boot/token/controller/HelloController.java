@@ -35,7 +35,7 @@ public class HelloController {
      * @return
      */
     @GetMapping("/qx")
-    @PreAuthorize("hasAuthority('test')")//必须具有权限才能访问 测试用户携带test，admin权限
+    @PreAuthorize("hasAuthority('system:dept:list')")//必须具有权限才能访问 测试用户携带test，admin权限
     // 如果为true才能访问 为false不能访问
     public String helloqx(){
         return "具有权限才能访问的接口";

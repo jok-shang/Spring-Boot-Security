@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.boot.token.domain.LoginUser;
 import com.boot.token.domain.User;
+import com.boot.token.mapper.MenuMapper;
 import com.boot.token.mapper.UserMapper;
 //import com.boot.token.service.UserDetailsService;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -26,6 +27,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Resource
     private UserMapper userMapper;
+    @Resource
+    private MenuMapper menuMapper;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -39,8 +42,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
             throw new RuntimeException("用户名或者密码错误");
         }
         //TODO 查询用户权限信息
-        List<String> list = new ArrayList<>(Arrays.asList("test","admin"));
-
+//        List<String> list = new ArrayList<>(Arrays.asList("test","admin"));
+        List<String> list = menuMapper.selectPermsByUserId(user.getId());
         // 如果查到吧数据封装成UserDetails
         return new LoginUser(user,list);
     }
