@@ -36,6 +36,8 @@ public class HelloController {
      * @return
      */
     @GetMapping("/qx")
+    // hasAuthority可以传入多个权限，满足任意一个即可
+//    @PreAuthorize("hasAnyAuthority()('admin','system:dept:list')")
     @PreAuthorize("hasAuthority('system:dept:list')")//必须具有权限才能访问 测试用户携带test，admin权限
     // 如果为true才能访问 为false不能访问
     public String helloqx(){
@@ -58,5 +60,12 @@ public class HelloController {
     @RequestMapping("/testCors")
     public ResponseResult testCors(){
         return new ResponseResult(200,"testCOrs");
+    }
+
+    // 自定义权限判定
+    @RequestMapping("/mypd")
+    @PreAuthorize("@ex.hasAuthority('system:dept:list')")
+    public ResponseResult mypd(){
+        return new  ResponseResult(200,"自定义权限认证成功");
     }
 }
