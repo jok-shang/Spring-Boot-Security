@@ -56,6 +56,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 // 对于登录接口 允许匿名访问，未登录可以访问，登录后不能访问
                 .antMatchers("/user/login").anonymous()
+                // （基于配置的权限访问）必须具有权限才能进行跨域操作
+                .antMatchers("/testCors").hasAuthority("system:dept:list")
                 // .permitAll()表示登录/未登录都能访问
                 // .anonymous()表示匿名访问，未登录可以访问，登录后不能访问
                 // 除上面外的所有请求全部需要鉴权认证
