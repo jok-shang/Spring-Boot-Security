@@ -1,5 +1,6 @@
 package com.boot.token.controller;
 
+import com.boot.token.domain.ResponseResult;
 import com.boot.token.domain.User;
 import com.boot.token.mapper.UserMapper;
 import org.springframework.security.access.method.P;
@@ -31,7 +32,7 @@ public class HelloController {
 
 
     /**
-     * 用户携带test的权限访问成功
+     * 用户携带system:dept:list的权限访问成功
      * @return
      */
     @GetMapping("/qx")
@@ -52,4 +53,10 @@ public class HelloController {
         return "No";
     }
 
+
+    // 测试跨域
+    @RequestMapping("/testCors")
+    public ResponseResult testCors(){
+        return new ResponseResult(200,"testCOrs");
+    }
 }
