@@ -76,9 +76,9 @@ public class JWTUtil {
         User user = new User(1,"222","www");
         String s = creatToken(user);
         System.out.println("生成的token值为："+s);
-        for (int i = 10;i > 0;i--){
-            Thread.sleep(1000);
-        }
+//        for (int i = 10;i > 0;i--){
+//            Thread.sleep(1000);
+//        }
         System.out.print("检查token是否过期：");
         boolean b = checkToken(s);
         System.out.print(b);

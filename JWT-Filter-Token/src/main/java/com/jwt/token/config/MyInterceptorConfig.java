@@ -16,9 +16,9 @@ public class MyInterceptorConfig extends WebMvcConfigurationSupport {
     @Override
     protected void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new JwtInterceptor())
-                // 添加拦截路径
+                // 添加拦截路径（多路径配置("/**","/*/**")）
                 .addPathPatterns("/**")
-                // 添加不需要拦截的路径
+                // 添加不需要拦截的路径（多路径配置同上）
                 .excludePathPatterns("/user/login","/user/register");
     }
 }

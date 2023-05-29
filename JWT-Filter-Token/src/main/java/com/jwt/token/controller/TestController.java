@@ -33,12 +33,6 @@ public class TestController {
             System.out.println(request.getRemoteAddr());
             System.out.println(request.getHeader("User-Agent"));
             System.out.println(SystemUtil.getRequestSystemInfo(request));
-//            System.out.println(request.getRemoteHost());
-//            request.getHeader("Sec-Ch-Ua-Platform");
-//            System.out.println();
-//            System.out.println(SystemUtil.getRequestBrowserInfo(request));
-//            System.out.println(request.getRemoteAddr());
-//            System.out.println(SystemUtil.getRequestSystemInfo(request));
             return new ResponseResult(200,"登录成功",token);
         }
         return new ResponseResult(201,"失败");
