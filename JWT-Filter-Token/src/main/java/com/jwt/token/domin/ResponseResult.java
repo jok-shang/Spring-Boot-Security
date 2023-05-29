@@ -1,12 +1,14 @@
 package com.jwt.token.domin;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.NoArgsConstructor;
 
 
 /**
  * @Author 尚智江
  * @CreateDate 2023/5/27 19:40
  */
+@NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ResponseResult<T> {
     /**
@@ -61,4 +63,6 @@ public class ResponseResult<T> {
         this.msg = msg;
         this.data = data;
     }
+
+
 }

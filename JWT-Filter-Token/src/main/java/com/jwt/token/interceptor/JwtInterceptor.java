@@ -1,5 +1,6 @@
 package com.jwt.token.interceptor;
 
+import com.jwt.token.domin.ResponseResult;
 import com.jwt.token.util.WebUtils;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.util.ObjectUtils;
@@ -22,10 +23,10 @@ public class JwtInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         String token = request.getHeader("token");
+        System.out.println("请求头中携带的token信息为：" + token);
         // 判断请求头中是否携带token检查token是否过期
         if (ObjectUtils.isEmpty(token)){
-            WebUtils.renderString(response,"token值异常");
-            response.getWriter();
+            WebUtils.renderString(response,"token为空");
             return false;
         }
 

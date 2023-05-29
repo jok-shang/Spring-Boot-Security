@@ -1,29 +1,28 @@
 package com.jwt.token.util;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.jwt.token.domin.ResponseResult;
+import jdk.nashorn.internal.ir.debug.JSONWriter;
+
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.Map;
 
 public class WebUtils
 {
-    /**
-     * 将字符串渲染到客户端
-     * 
-     * @param response 渲染对象
-     * @param string 待渲染的字符串
-     * @return null
-     */
-    public static String renderString(HttpServletResponse response, String string) {
-        try
-        {
-            response.setStatus(401);
-            response.setContentType("application/json");
-            response.setCharacterEncoding("utf-8");
-            response.getWriter().print(string);
-        }
-        catch (IOException e)
-        {
-            e.printStackTrace();
-        }
-        return null;
+
+    public static void renderString(HttpServletResponse response, String s) throws IOException {
+
+        Map<Object, Object> map = new HashMap<>();
+        map.put("code",401);
+        map.put("message",s);
+        String jsonMap = new ObjectMapper().writeValueAsString(map);
+        response.setContentType("application/json;charset=UTF-8");
+        response.setStatus(401);
+        response.getWriter().println(jsonMap);
     }
+
+
 }

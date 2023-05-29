@@ -44,6 +44,7 @@ public class TestController {
         return new ResponseResult(201,"失败");
     }
 
+    @CrossOrigin
     @GetMapping("/index")
     public ResponseResult index(){
         return new ResponseResult(200,"访问成功","index");
