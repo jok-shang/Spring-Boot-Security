@@ -4,7 +4,8 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 
 
 /**
- * @Author 三更  B站： https://space.bilibili.com/663528522
+ * @Author 尚智江
+ * @CreateDate 2023/5/27 19:40
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ResponseResult<T> {

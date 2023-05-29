@@ -5,10 +5,7 @@ import com.jwt.token.domin.User;
 import com.jwt.token.util.JWTUtil;
 import com.jwt.token.util.SystemUtil;
 import org.springframework.http.HttpRequest;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -17,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
  * @CreateDate 2023/5/27 23:22
  */
 @RestController
+@CrossOrigin
 public class TestController {
 
 
@@ -31,7 +29,16 @@ public class TestController {
             user.setId(1);
             String token = JWTUtil.creatToken(user);
             // 获取登录用户信息
-            System.out.println(SystemUtil.getRequestBrowserInfo(request));
+            System.out.println(request.getHeader("Sec-Ch-Ua-Platform"));
+            System.out.println(request.getRemoteAddr());
+            System.out.println(request.getHeader("User-Agent"));
+            System.out.println(SystemUtil.getRequestSystemInfo(request));
+//            System.out.println(request.getRemoteHost());
+//            request.getHeader("Sec-Ch-Ua-Platform");
+//            System.out.println();
+//            System.out.println(SystemUtil.getRequestBrowserInfo(request));
+//            System.out.println(request.getRemoteAddr());
+//            System.out.println(SystemUtil.getRequestSystemInfo(request));
             return new ResponseResult(200,"登录成功",token);
         }
         return new ResponseResult(201,"失败");
